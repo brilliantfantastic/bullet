@@ -1,0 +1,17 @@
+.button {
+  display: inline-block;
+  position: relative;
+  padding: 0;
+  height: 38px;
+  line-height: 37px;
+  outline: 0;
+  background: transparent;
+  text-decoration: none;
+  cursor: pointer;
+  white-space: nowrap;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  letter-spacing: -0.02em;
+  border-radius: 999em;
+  border: 1px solid rgba(0,0,0,0.6);
+}

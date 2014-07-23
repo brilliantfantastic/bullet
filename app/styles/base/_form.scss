@@ -1,3 +1,37 @@
 input, input:focus, textarea, textarea:focus, select, select:focus {
   display: inline-block;
 }
+
+input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="email"], input[type="month"], input[type="number"], 
+input[type="tel"], input[type="text"], input[type="time"], input[type="week"], input[type="url"], input[type="password"] {
+  font-size: em(20);
+  padding: 5px 0;
+
+  @include placeholder {
+    font-weight: 300;
+  }
+}
+
+.single-form-container {
+  @include span-columns(6);
+  @include shift(3);
+  margin-top: 10%;
+
+  form {
+    @include span-columns(4 of 6);
+    @include shift(1);
+
+    input[type=submit], button {
+      @include span-columns(2 of 4);
+      margin-top: 10px;
+    }
+  }
+}
+
+.input--chromeless {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  height: auto;
+  background: transparent;
+}
