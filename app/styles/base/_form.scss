@@ -19,12 +19,13 @@ input[type="tel"], input[type="text"], input[type="time"], input[type="week"], i
   margin-top: 10%;
 
   h2 {
-    @include shift(2);
+    @include span-columns(6 of 6);
+    @include shift(1);
     font-family: $form-font;
   }
 
   form {
-    @include span-columns(4 of 6);
+    @include span-columns(6 of 6);
     @include shift(1);
 
     input[type=submit], button {
