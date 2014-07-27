@@ -21,7 +21,9 @@ input[type="tel"], input[type="text"], input[type="time"], input[type="week"], i
   h2 {
     @include span-columns(6 of 6);
     @include shift(1);
+    font-size: em(30);
     font-family: $form-font;
+    font-weight: 300;
   }
 
   form {
