@@ -18,6 +18,11 @@ input[type="tel"], input[type="text"], input[type="time"], input[type="week"], i
   @include shift(3);
   margin-top: 10%;
 
+  h2 {
+    @include shift(2);
+    font-family: $form-font;
+  }
+
   form {
     @include span-columns(4 of 6);
     @include shift(1);
