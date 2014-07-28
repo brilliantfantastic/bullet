@@ -18,6 +18,10 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    authenticationRoute: 'signin'
+  };
+
   if (environment === 'development') {
     // LOG_MODULE_RESOLVER is needed for pre-1.6.0
     ENV.LOG_MODULE_RESOLVER = true;
