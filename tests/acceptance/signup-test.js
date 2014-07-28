@@ -5,7 +5,7 @@ import startApp from "../helpers/start-app";
 
 var App, server;
 
-module("Acceptance: Signup", {
+module("Acceptance - Signup", {
   setup: function() {
     App = startApp();
     server = new Pretender(function() {
@@ -21,12 +21,13 @@ module("Acceptance: Signup", {
   }
 });
 
-test("successful signup", function() {
+test("signup with valid credentials should sign the user in", function() {
   visit("/signup");
   fillIn("input[placeholder='Name']", "Jimmy Page");
   fillIn("input[placeholder='Email']", "jimmy.page@zeppelin.com");
   fillIn("input[placeholder='Password']", "communicationbreakdown");
   click("button").then(function() {
+    equal(currentPath(), "journal");
     equal(find("ul.nav li:last").text(), "Sign out");
   });
 });
