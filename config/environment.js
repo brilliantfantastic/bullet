@@ -20,7 +20,8 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth'] = {
-    authenticationRoute: 'signin'
+    authenticationRoute: 'signin',
+    authorizer: 'simple-auth-authorizer:devise'
   };
 
   if (environment === 'development') {
