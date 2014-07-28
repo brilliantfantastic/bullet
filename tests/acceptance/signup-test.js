@@ -1,12 +1,11 @@
 /* global Pretender */
 
 import Ember from "ember";
-import { test } from "ember-qunit";
 import startApp from "../helpers/start-app";
 
 var App, server;
 
-module("Signup Acceptance Test", {
+module("Acceptance: Signup", {
   setup: function() {
     App = startApp();
     server = new Pretender(function() {
@@ -22,7 +21,7 @@ module("Signup Acceptance Test", {
   }
 });
 
-test("Successful signup", function() {
+test("successful signup", function() {
   visit("/signup");
   fillIn("input[placeholder='Name']", "Jimmy Page");
   fillIn("input[placeholder='Email']", "jimmy.page@zeppelin.com");
