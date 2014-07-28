@@ -1,15 +1,24 @@
+/* global Pretender */
+
 import Ember from "ember";
 import { test } from "ember-qunit";
 import startApp from "../helpers/start-app";
 
-var App;
+var App, server;
 
 module("Signup Acceptance Test", {
   setup: function() {
     App = startApp();
+    server = new Pretender(function() {
+      this.post('/api/users', function() {
+        var user = { user: { access_token: 'access token' } }
+        return [201, { 'Content-Type': 'application/json' }, JSON.stringify(user)];
+      });
+    });
   },
   teardown: function() {
     Ember.run(App, App.destroy);
+    server.shutdown();
   }
 });
 
