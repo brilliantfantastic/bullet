@@ -8,12 +8,6 @@ var App, server;
 module("Acceptance - Signup", {
   setup: function() {
     App = startApp();
-    server = new Pretender(function() {
-      this.post("/api/users", function() {
-        var user = { user: { id: 1, name: "Jimmy Page", email: "jimmy.page@zeppelin.com", access_token: "secret" } };
-        return [201, { "Content-Type": "application/json" }, JSON.stringify(user)];
-      });
-    });
   },
   teardown: function() {
     Ember.run(App, App.destroy);
@@ -22,6 +16,13 @@ module("Acceptance - Signup", {
 });
 
 test("signup with valid credentials should sign the user in", function() {
+  server = new Pretender(function() {
+    this.post("/api/users", function() {
+      var user = { user: { id: 1, name: "Jimmy Page", email: "jimmy.page@zeppelin.com", access_token: "secret" } };
+      return [201, { "Content-Type": "application/json" }, JSON.stringify(user)];
+    });
+  });
+
   visit("/signup");
   fillIn("input[placeholder='Name']", "Jimmy Page");
   fillIn("input[placeholder='Email']", "jimmy.page@zeppelin.com");
@@ -29,5 +30,21 @@ test("signup with valid credentials should sign the user in", function() {
   click("button").then(function() {
     equal(currentPath(), "journal");
     equal(find("ul.nav li:last").text(), "Sign out");
+  });
+});
+
+test("signup with invalid credentials should display a message and not sign in", function() {
+  server = new Pretender(function() {
+    this.post("/api/users", function() {
+      var errors = { errors: ["Email is required"] };
+      return [422, { "Content-Type": "application/json" }, JSON.stringify(errors)];
+    });
+  });
+
+  visit("/signup");
+  fillIn("input[placeholder='Name']", "Jimmy Page");
+  click("button").then(function() {
+    equal(currentPath(), "signup");
+    ok(new RegExp(/Email is required/).test(find(".errorSummary").text()));
   });
 });

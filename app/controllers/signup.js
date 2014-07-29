@@ -9,6 +9,9 @@ export default Ember.ObjectController.extend({
         var properties = { user_token: user.get('accessToken'), user_email: user.get('email') };
         session.setup(BulletENV.authenticator, properties, true);
         controller.transitionToRoute("journal");
+      }, function(error) {
+        controller.get("model").transitionTo("created.uncommitted");
+        controller.set("errorMessage", error.errors[0]);
       });
     }
   }

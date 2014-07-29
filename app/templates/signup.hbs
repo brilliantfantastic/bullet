@@ -1,4 +1,7 @@
 <div class="container">
+  {{#if errorMessage}}
+    <div class="errorSummary">{{errorMessage}}</div>
+  {{/if}}
   <div class="single-form-container">
     <h2>This notebook belongs to</h2>
     <form {{action "signup" on="submit"}}>
