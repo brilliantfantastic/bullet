@@ -1,6 +1,10 @@
 <div class="container">
-  {{#if errorMessage}}
-    <div class="errorSummary">{{errorMessage}}</div>
+  {{#if errorMessages}}
+    <div class="errorSummary">
+      {{#each errorMessages}}
+        {{this}}
+      {{/each}}
+    </div>
   {{/if}}
   <div class="single-form-container">
     <h2>This notebook belongs to</h2>

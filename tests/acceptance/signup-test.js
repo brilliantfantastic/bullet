@@ -36,7 +36,7 @@ test("signup with valid credentials should sign the user in", function() {
 test("signup with invalid credentials should display a message and not sign in", function() {
   server = new Pretender(function() {
     this.post("/api/users", function() {
-      var errors = { errors: ["Email is required"] };
+      var errors = { errors: ["Email is required", "Name is required"] };
       return [422, { "Content-Type": "application/json" }, JSON.stringify(errors)];
     });
   });
@@ -46,5 +46,6 @@ test("signup with invalid credentials should display a message and not sign in",
   click("button").then(function() {
     equal(currentPath(), "signup");
     ok(new RegExp(/Email is required/).test(find(".errorSummary").text()));
+    ok(new RegExp(/Name is required/).test(find(".errorSummary").text()));
   });
 });
