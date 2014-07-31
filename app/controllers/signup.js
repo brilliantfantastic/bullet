@@ -9,7 +9,7 @@ export default Ember.ObjectController.extend(UnprocessableEntityControllerMixin,
       this.get("model").save().then(function(user) {
         var properties = { user_token: user.get("accessToken"), user_email: user.get("email") };
         session.setup(BulletENV.authenticator, properties, true);
-        controller.transitionToRoute("journal");
+        controller.transitionToRoute("notebook");
       }, function(error) {
         controller.get("model").transitionTo("created.uncommitted");
         controller.showUnprocessableEntityError(error);

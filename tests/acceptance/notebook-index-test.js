@@ -6,7 +6,7 @@ import Configuration from 'simple-auth/configuration';
 
 var App;
 
-module("Acceptance - Journal Index", {
+module("Acceptance - Notebook Index", {
   setup: function() {
     App = startApp();
     Configuration.authenticationRoute = "signin";
@@ -18,7 +18,7 @@ module("Acceptance - Journal Index", {
 
 test("visiting without a signed in user should redirect to signin", function() {
   invalidateSession();
-  visit("/journal").then(function() {
+  visit("/notebook").then(function() {
     equal(currentPath(), "signin");
   });
 });

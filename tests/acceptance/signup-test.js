@@ -28,7 +28,7 @@ test("signup with valid credentials should sign the user in", function() {
   fillIn("input[placeholder='Email']", "jimmy.page@zeppelin.com");
   fillIn("input[placeholder='Password']", "communicationbreakdown");
   click("button").then(function() {
-    equal(currentPath(), "journal");
+    equal(currentPath(), "notebook");
     equal(find("ul.nav li:last").text(), "Sign out");
   });
 });

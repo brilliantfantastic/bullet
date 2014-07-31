@@ -7,7 +7,7 @@ var Router = Ember.Router.extend({
 Router.map(function() {
   this.route("signup");
   this.route("signin");
-  this.route("journal");
+  this.route("notebook");
 });
 
 export default Router;
