@@ -30,11 +30,11 @@ test("should retrieve the last notebook for the user", function() {
   authenticateSession();
   server = new Pretender(function() {
     this.get("/api/notebooks", function() {
-      var notebooks = { notebooks: [{ id: 1, title: "Index" }] };
+      var notebooks = { notebooks: [{ id: 1, page_ids: [10] }], pages: [{ id: 10, title: "Index" }] };
       return [200, { "Content-Type": "application/json" }, JSON.stringify(notebooks)];
     });
   });
   visit("/notebook").then(function() {
-    equal(find(".notebook--page-title").text(), "Index");
+    equal(find(".page--title").text(), "Index");
   });
 });
