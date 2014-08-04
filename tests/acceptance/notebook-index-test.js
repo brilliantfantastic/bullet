@@ -1,10 +1,10 @@
-/* global authenticateSession, invalidateSession */
+/* global Pretender, authenticateSession, invalidateSession */
 
 import Ember from "ember";
 import startApp from "../helpers/start-app";
 import Configuration from 'simple-auth/configuration';
 
-var App;
+var App, server;
 
 module("Acceptance - Notebook Index", {
   setup: function() {
@@ -13,6 +13,9 @@ module("Acceptance - Notebook Index", {
   },
   teardown: function() {
     Ember.run(App, App.destroy);
+    if (!Ember.isNone(server)) {
+      server.shutdown();
+    }
   }
 });
 
@@ -25,6 +28,12 @@ test("visiting without a signed in user should redirect to signin", function() {
 
 test("should retrieve the last notebook for the user", function() {
   authenticateSession();
+  server = new Pretender(function() {
+    this.get("/api/notebooks", function() {
+      var notebooks = { notebooks: [{ id: 1, title: "Index" }] };
+      return [200, { "Content-Type": "application/json" }, JSON.stringify(notebooks)];
+    });
+  });
   visit("/notebook").then(function() {
     equal(find(".notebook--page-title").text(), "Index");
   });

@@ -21,6 +21,9 @@ test("signup with valid credentials should sign the user in", function() {
       var user = { user: { id: 1, name: "Jimmy Page", email: "jimmy.page@zeppelin.com", access_token: "secret" } };
       return [201, { "Content-Type": "application/json" }, JSON.stringify(user)];
     });
+    this.get("/api/notebooks", function() {
+      return [200, { "Content-Type": "application/json" }, JSON.stringify({ notebooks: [] })];
+    });
   });
 
   visit("/signup");
