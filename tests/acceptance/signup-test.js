@@ -32,7 +32,7 @@ test("signup with valid credentials should sign the user in", function() {
   fillIn("input[placeholder='Password']", "communicationbreakdown");
   click("button").then(function() {
     equal(currentPath(), "notebook");
-    equal(find("ul.nav li:last").text(), "Sign out");
+    equal(find("nav.top-bar li:last").text(), "Sign out");
   });
 });
 
