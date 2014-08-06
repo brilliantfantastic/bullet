@@ -1,3 +1,7 @@
 .container {
   @include outer-container;
 }
+
+.right {
+  float: right;
+}

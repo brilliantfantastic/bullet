@@ -1,0 +1,25 @@
+.top-bar {
+  border-bottom: solid 1px #000;
+  overflow: visible;
+  height: 45px;
+  line-height: 45px;
+  position: relative;
+  margin-bottom: 1em;
+
+  .title-area {
+    float: left;
+  }
+
+  .logo, .name {
+    padding-left: 1em;
+    padding-right: 2em;
+  }
+
+  .top-bar-section {
+    padding-right: 1em;
+  }
+
+  ul {
+    @include horizontal-list;
+  }
+}
