@@ -1,0 +1,16 @@
+.notebook {
+  @include outer-container;
+  height: 1000px;
+}
+
+.page {
+  @include span-columns(6);
+  border: solid 1px #000;
+  height: 100%;
+
+  .page--title {
+    text-align: center;
+    padding: em(10) 0px;
+    border-bottom: solid 1px #000;
+  }
+}
