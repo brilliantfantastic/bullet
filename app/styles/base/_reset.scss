@@ -1,5 +1,6 @@
 body {
   margin: 0 auto;
+  font-family: $default-font;
 }
 
 input[type="checkbox"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="email"], input[type="month"], input[type="number"], 
@@ -8,5 +9,4 @@ textarea, textarea:focus, select, select:focus, button {
   -webkit-appearance: none;
   border: 2px solid transparent;
   width: 100%;
-  font-family: $form-font;
 }
