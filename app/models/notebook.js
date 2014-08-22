@@ -7,12 +7,15 @@ export default DS.Model.extend({
   currentPages: function() {
     var pages = this.get("pages.content") || Ember.A();
     var store = this.store;
+    var limit = 2;
+    var length = pages.get("length");
 
-    if (Ember.isEmpty(pages)) {
-      pages.pushObject(store.createRecord("page", { index: 1 }));
-      pages.pushObject(store.createRecord("page", { index: 2 }));
-    } else if (pages.get("length") === 1) {
-      pages.pushObject(store.createRecord("page", { index: 2 }));
+    if (length < limit) { // Need to add additional pages
+      for (var i = length; i < limit; i++) {
+        pages.pushObject(store.createRecord("page", { index: i + 1 }));
+      }
+    } else if (length > limit) { // Need to slice existing pages
+      pages = pages.slice(limit * -1);
     }
     return pages;
   }.property("pages"),
