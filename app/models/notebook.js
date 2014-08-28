@@ -2,10 +2,10 @@ import Ember from "ember";
 import DS from "ember-data";
 
 export default DS.Model.extend({
-  pages: DS.hasMany("page", { async: true }),
+  pages: DS.hasMany("page"),
 
   currentPages: function() {
-    var pages = this.get("pages.content") || Ember.A();
+    var pages = this.get("pages") || Ember.A();
     var store = this.store;
     var limit = 2;
     var length = pages.get("length");
@@ -18,5 +18,5 @@ export default DS.Model.extend({
       pages = pages.slice(limit * -1);
     }
     return pages;
-  }.property("pages"),
+  }.property("pages")
 });

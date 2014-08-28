@@ -7,9 +7,12 @@ moduleForModel("notebook", "Notebook Model", {
 
 test("currentPages should always return two pages when there is none", function() {
   var notebook = this.subject();
-  equal(notebook.get("currentPages").get("length"), 2);
-  ok(notebook.get("currentPages").get("firstObject").get("isOdd"));
-  ok(notebook.get("currentPages").get("lastObject").get("isEven"));
+  var pages = null;
+  Ember.run(function() { pages = notebook.get("currentPages"); });
+
+  equal(pages.get("length"), 2);
+  ok(pages.get("firstObject").get("isOdd"));
+  ok(pages.get("lastObject").get("isEven"));
 });
 
 test("currentPages should always return two pages when there is one", function() {
@@ -18,7 +21,7 @@ test("currentPages should always return two pages when there is one", function()
   var pages = null;
 
   Ember.run(function() {
-    notebook.get("pages").set("content", Ember.A([store.createRecord("page", {index: 1})]));
+    notebook.get("pages").pushObject(store.createRecord("page", {index: 1}));
     pages = notebook.get("currentPages");
   });
 
@@ -33,8 +36,8 @@ test("currentPages should always return two pages when there is two", function()
   var pages = null;
 
   Ember.run(function() {
-    notebook.get("pages").set("content", Ember.A([store.createRecord("page", {index: 1}),
-        store.createRecord("page", {index: 2})]));
+    notebook.get("pages").pushObject(store.createRecord("page", {index: 1}));
+    notebook.get("pages").pushObject(store.createRecord("page", {index: 2}));
     pages = notebook.get("currentPages");
   });
 

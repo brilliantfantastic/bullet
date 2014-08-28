@@ -5,12 +5,14 @@
 
 .page {
   @include span-columns(6);
+  @include omega;
   border: solid 1px #000;
   height: 100%;
 
   .page--title {
     text-align: center;
     padding: em(10) 0px;
+    height: em(40);
     border-bottom: solid 1px #000;
   }
 }
