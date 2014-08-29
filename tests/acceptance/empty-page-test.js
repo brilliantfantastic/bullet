@@ -3,13 +3,15 @@
 import Ember from "ember";
 import startApp from "../helpers/start-app";
 
-var App, server;
+var App, server, _date;
 
 module("Acceptance - Empty Page", {
   setup: function() {
+    _date = window.Date;
     App = startApp();
   },
   teardown: function() {
+    window.Date = _date;
     Ember.run(App, App.destroy);
     if (!Ember.isNone(server)) {
       server.shutdown();
@@ -26,9 +28,10 @@ test("should default the page title when clicked on", function() {
     });
   });
   visit("/notebook").then(function() {
+    window.Date = function() { return new _date("Sat Oct 01 2011 00:00:00"); };
     click(".page:last .page--content");
     andThen(function() {
-      equal(find(".page:last .page--title input").val(), "August 29");
+      equal(find(".page:last .page--title input").val(), "October 1");
     });
   });
 });
