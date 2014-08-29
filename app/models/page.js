@@ -9,6 +9,10 @@ export default DS.Model.extend({
     return this.get("index");
   }.property("index"),
 
+  isTitleReadOnly: function() {
+    return this.get("index") === 1;
+  }.property("index"),
+
   isEven: function() {
     return this.get("index") % 2 === 0;
   }.property("index"),
