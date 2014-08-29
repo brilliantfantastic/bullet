@@ -35,6 +35,6 @@ test("should retrieve the last notebook for the user", function() {
     });
   });
   visit("/notebook").then(function() {
-    equal(find(".page--title").text(), "Index");
+    equal(find(".page--title:first").text().trim(), "Index");
   });
 });
