@@ -4,9 +4,11 @@ input, input:focus, textarea, textarea:focus, select, select:focus {
 
 input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="email"], input[type="month"], input[type="number"], 
 input[type="tel"], input[type="text"], input[type="time"], input[type="week"], input[type="url"], input[type="password"] {
-  font-size: em(20);
-  padding: 5px 0;
-  margin-top: 10px;
+  &.large {
+    font-size: em(20);
+    padding: 5px 0;
+    margin-top: 10px;
+  }
 
   @include placeholder {
     font-weight: 300;
