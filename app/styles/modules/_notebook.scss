@@ -6,13 +6,26 @@
 .page {
   @include span-columns(6);
   @include omega;
-  border: solid 1px #000;
   height: 100%;
+  position: relative;
+  border: solid 1px #000;
 
   .page--title {
     text-align: center;
     padding: em(10) 0px;
     height: em(40);
     border-bottom: solid 1px #000;
+  }
+
+  .page--footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    padding: em(5) 0;
+  }
+
+  .page--page-number {
+    float: right;
+    padding-right: em(10);
   }
 }

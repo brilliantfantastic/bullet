@@ -5,6 +5,10 @@ export default DS.Model.extend({
   index: DS.attr("number"),
   notebook: DS.belongsTo("notebook"),
 
+  pageNumber: function() {
+    return this.get("index");
+  }.property("index"),
+
   isEven: function() {
     return this.get("index") % 2 === 0;
   }.property("index"),
