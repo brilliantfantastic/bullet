@@ -28,7 +28,7 @@ test("should default the page title when clicked on", function() {
   visit("/notebook").then(function() {
     click(".page:last .page--content");
     andThen(function() {
-      equal(find(".page:last .page--title input").val(), "August 28");
+      equal(find(".page:last .page--title input").val(), "August 29");
     });
   });
 });
