@@ -12,9 +12,16 @@
 </nav>
 
 <div class="notebook">
-  {{#each currentPages}}
+  {{#each currentPages itemController="page"}}
     <div class="page">
-      <div class="page--title">{{title}}</div>
+      <div class="page--title">
+        {{#if isTitleReadOnly}}
+          {{title}}
+        {{else}}
+          {{selectable-text-field class="input--chromeless" value=title}}
+        {{/if}}
+      </div>
+      <div class="page--content" {{action "defaultTitle"}}></div>
       <div class="page--footer">
         <div class="page--page-number">{{pageNumber}}</div>
       </div>

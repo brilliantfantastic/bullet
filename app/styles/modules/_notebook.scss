@@ -15,6 +15,16 @@
     padding: em(10) 0px;
     height: em(40);
     border-bottom: solid 1px #000;
+
+    input[type="text"] {
+      text-align: center;
+      font-size: em(14);
+    }
+  }
+
+  .page--content {
+    height: 100%;
+    cursor: pointer;
   }
 
   .page--footer {
