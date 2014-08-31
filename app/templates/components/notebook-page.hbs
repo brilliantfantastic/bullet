@@ -1,5 +1,5 @@
 <div class="page--title">{{page-title page=page}}</div>
-<div class="page--content" {{action "defaultTitle"}}></div>
+<div {{bind-attr class=":page--content page.isReadOnly:read-only"}} {{action "defaultTitle"}}></div>
 <div class="page--footer">
   <div class="page--page-number">{{page.pageNumber}}</div>
 </div>
