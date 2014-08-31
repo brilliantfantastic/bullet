@@ -1,5 +1,5 @@
 <div class="page--title">
-  {{#if page.isTitleReadOnly}}
+  {{#if page.isReadOnly}}
     {{page.title}}
   {{else}}
     {{selectable-text-field class="input--chromeless" value=page.title}}

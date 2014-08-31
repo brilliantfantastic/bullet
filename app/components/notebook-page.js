@@ -6,7 +6,7 @@ export default Ember.Component.extend({
   actions: {
     defaultTitle: function() {
       var page = this.get("page");
-      if (Ember.isEmpty(page.get("title")) && !page.isTitleReadOnly) {
+      if (Ember.isEmpty(page.get("title")) && !page.isReadOnly) {
         page.set("title", DefaultPageTitle.create().get("title"));
       }
     }

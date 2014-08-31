@@ -6,7 +6,7 @@ export default DS.Model.extend({
   index: DS.attr("number"),
   notebook: DS.belongsTo("notebook"),
   pageNumber: Ember.computed.alias("index"),
-  isTitleReadOnly: Ember.computed.equal("index", 1),
+  isReadOnly: Ember.computed.equal("index", 1),
 
   isEven: function() {
     return this.get("index") % 2 === 0;
