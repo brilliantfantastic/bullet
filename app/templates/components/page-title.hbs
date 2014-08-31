@@ -1,0 +1,5 @@
+{{#if page.isReadOnly}}
+  {{page.title}}
+{{else}}
+  {{selectable-text-field class="input--chromeless" value=page.title}}
+{{/if}}

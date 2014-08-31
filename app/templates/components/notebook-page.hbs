@@ -1,10 +1,4 @@
-<div class="page--title">
-  {{#if page.isReadOnly}}
-    {{page.title}}
-  {{else}}
-    {{selectable-text-field class="input--chromeless" value=page.title}}
-  {{/if}}
-</div>
+<div class="page--title">{{page-title page=page}}</div>
 <div class="page--content" {{action "defaultTitle"}}></div>
 <div class="page--footer">
   <div class="page--page-number">{{page.pageNumber}}</div>
