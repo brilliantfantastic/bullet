@@ -26,6 +26,9 @@
     height: 100%;
     &:not(.read-only) {
       cursor: pointer;
+      &:focus {
+        border-color: #999;
+      }
     }
   }
 
