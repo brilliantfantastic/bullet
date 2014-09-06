@@ -2,7 +2,7 @@ import Ember from "ember";
 import { test, moduleForModel } from "ember-qunit";
 
 moduleForModel("page", "Page Model", {
-  needs: ["model:notebook"]
+  needs: ["model:notebook", "model:bullet"]
 });
 
 test("odd page should be determined by index", function() {

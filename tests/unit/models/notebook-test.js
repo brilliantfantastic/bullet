@@ -2,7 +2,7 @@ import Ember from "ember";
 import { test, moduleForModel } from "ember-qunit";
 
 moduleForModel("notebook", "Notebook Model", {
-  needs: ["model:page"]
+  needs: ["model:page", "model:bullet"]
 });
 
 test("currentPages should always return two pages when there is none", function() {

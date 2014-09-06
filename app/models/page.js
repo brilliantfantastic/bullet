@@ -5,6 +5,7 @@ export default DS.Model.extend({
   title: DS.attr("string"),
   index: DS.attr("number"),
   notebook: DS.belongsTo("notebook"),
+  bullets: DS.hasMany("bullet"),
   pageNumber: Ember.computed.alias("index"),
   isReadOnly: Ember.computed.equal("index", 1),
 
