@@ -1,5 +1,11 @@
 <div class="page--title">{{page-title page=page}}</div>
-<div {{bind-attr tabindex=page.pageNumber}} {{bind-attr class=":page--content page.isReadOnly:read-only"}} {{action "defaultTitle"}}></div>
+<div {{bind-attr tabindex=page.pageNumber}} {{bind-attr class=":page--content page.isReadOnly:read-only"}} {{action "defaultTitle" page}}>
+  {{#each page.bullets}}
+    <div class="bullet">
+      Bullet!!!
+    </div>
+  {{/each}}
+</div>
 <div class="page--footer">
   <div class="page--page-number">{{page.pageNumber}}</div>
 </div>
