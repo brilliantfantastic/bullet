@@ -16,7 +16,7 @@ export default Ember.Component.extend({
     addBullet: function(page) {
       if (!page.get("isReadOnly") && Ember.isEmpty(page.get("bullets")) && !Ember.isEmpty(page.get("title"))) {
         var store = page.get("store");
-        page.get("bullets").pushObject(store.createRecord("bullet"));
+        page.get("bullets").pushObject(store.createRecord("taskBullet"));
       }
     }
   }
