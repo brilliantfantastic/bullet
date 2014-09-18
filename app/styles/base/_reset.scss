@@ -3,7 +3,7 @@ body {
   font-family: $default-font;
 }
 
-input[type="checkbox"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="email"], input[type="month"], input[type="number"], 
+input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="email"], input[type="month"], input[type="number"], 
 input[type="submit"], input[type="tel"], input[type="text"], input[type="time"], input[type="week"], input[type="url"], input[type="password"],
 textarea, textarea:focus, select, select:focus, button {
   -webkit-appearance: none;

@@ -1,0 +1,13 @@
+.bullet {
+  width: 100%;
+}
+
+.bullet--action {
+  @include span-columns(1);
+  height: 49px;
+  line-height: 49px;
+}
+
+.bullet--title {
+  @include span-columns(11);
+}
