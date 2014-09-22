@@ -6,6 +6,9 @@ export default Ember.Component.extend({
     doneEditing: function() {
       var bullet = this.get("bullet");
       bullet.save();
+
+      var store = bullet.get("store");
+      bullet.get("page.bullets").insertAt(0, store.createRecord("taskBullet"));
     }
   }
 });
